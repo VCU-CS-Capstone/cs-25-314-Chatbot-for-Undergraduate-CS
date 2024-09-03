@@ -1,15 +1,11 @@
-# *CSnnn Project Name*
-## **Sponsor:**
+# *Chatbot for CS*
+## **Sponsor: Caroline Budwell**
 
-**Students' Names:**
+**Students' Names: Kennedy Martin, Israel Agoe-Sowah, Eric Simonie, Antony Fuentes**
 
-**Mentor:**
+**Project: Create a chatbot for undergraduate CS**
 
-**Faculty Advisor:**
-
-**Project:**
-
-**Project Description:**
+**Project Description: **
 
 **Problem Definition:**
 
