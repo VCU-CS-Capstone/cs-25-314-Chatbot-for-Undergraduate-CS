@@ -5,9 +5,9 @@
 
 **Project: Create a chatbot for undergraduate CS**
 
-**Project Description: **
+**Project Description: Create a chatbot that can be implemented on VCU's website. The target audience/users would bu undergraduate students/perspective students in the Computer Science program.**
 
-**Problem Definition:**
+**Problem Definition: **
 
 **Deliverables**
 
