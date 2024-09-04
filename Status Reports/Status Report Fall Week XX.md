@@ -1,12 +1,14 @@
-# *CS 25-XXX Project Name*
+# *CS 25-314 Chatbot for Undergraduate CS*
 
-**Students' Names:**
+**Students' Names: Kennedy Martin, Israel Agoe-Sowah, Eric Simonie, Antony Fuentes**
 
-**Mentor:**
-
-**Faculty Advisor:**
+**Faculty Advisor: Caroline Budwell**
 
 ## 1) Accomplishments this week ##
+   - Met with faculty advisor, discussed desired project outcome, requirements, etc.
+   - Set up a meeting schedule for both team meetings and faculty advisor meetings
+   - Completed and submitted Team Contract
+   - Investigated/Researched topics related to chatbot creation (implementation on website, common undergraduate questions, etc)
    - investigate databases done by student A
    - make flowcharts done by students A and B
 
