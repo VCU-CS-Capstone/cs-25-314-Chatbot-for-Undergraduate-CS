@@ -11,9 +11,9 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 
 | Document | Tasks | Accomplishments | Issues |
 |---|---|---|---|
-| Week 1 Status Report | We've accomplished a lot | We'll accomplish even more | No problems to report! |
-| Week 2 Status Report | | | |
-| Week 3 Status Report | | | |
+| Week 1 Status Report | Established Teams | | No problems to report! |
+| Week 2 Status Report | Met with faculty advisor| |No issues |
+| Week 3 Status Report | Researched topics, requirements| |No issues |
 | Week 4 Status Report | | | |
 | Week 5 Status Report | | | |
 | Week 6 Status Report | | | |
