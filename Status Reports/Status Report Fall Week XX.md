@@ -1,6 +1,6 @@
 # *CS 25-314 Chatbot for Undergraduate CS*
 
-**Students' Names: Kennedy Martin, Israel Agoe-Sowah, Eric Simonie, Antony Fuentes**
+**Students' Names: Kennedy Martin, Israel Agoe-Sowah, Eric Simoni, Antony Fuentes**
 
 **Faculty Advisor: Caroline Budwell**
 
