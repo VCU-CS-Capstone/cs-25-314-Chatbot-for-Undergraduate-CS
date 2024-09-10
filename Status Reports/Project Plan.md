@@ -18,7 +18,7 @@
 | _Week 1_ | _Project Assignments_ | _Get project_ |
 | _Week 2_ | _ Group Assignments_ | _Get to know Group_ |
 | _Week 3_ | _Initial Project documentation_ | _Project Understanding_ |
-| _Week 4_ | _Research_ | _Project Plan & Outline |
+| _Week 4_ | _Research_ | _Project Plan & Outline_ |
 | _Week 5_ | ... | ... |
 | _Week 6_ | ... | ... |
 | _Week 7_ | ... | ... |
