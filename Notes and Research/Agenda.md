@@ -1,5 +1,17 @@
 ## Agenda
 
+### Things to do this week 9/10/2024
+
+1. **Decide on a the tools we will be using**
+   - More Premade platforms
+      - Dialogflow
+      - Microsoft Bot Framework
+      - Chatfuel
+   - Are going to build it from scratch?
+      - Flask
+      - Django
+      - Chatterbot
+
 ### Things we need to do soon 9/6/2024:
 
 1. **Figure out what tools we want to be using.**
