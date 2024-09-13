@@ -7,7 +7,7 @@
 ## 1) Accomplishments this week 2
    - Met with Team
    - Met with Faculty advisor
-   - Started completing Team Contract
+   - Completed Team Contract, assigning roles, and setting guidlines for project
    - Set up schedule and sent out meeting invites
    - Setup Github
 
