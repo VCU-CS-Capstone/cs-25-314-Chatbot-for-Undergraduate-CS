@@ -4,20 +4,20 @@
 
 **Faculty Advisor: Caroline Budwell**
 
-## 1) Accomplishments this week ##
-   - Met with faculty advisor, discussed desired project outcome, requirements, etc.
-   - Set up a meeting schedule for both team meetings and faculty advisor meetings
-   - Completed and submitted Team Contract
-   - Investigated/Researched topics related to chatbot creation (implementation on website, common undergraduate questions, etc)
-   - investigate databases done by student A
-   - make flowcharts done by students A and B
+## 1) Accomplishments this week 4
+   - Met with faculty advisor, discussed progress on research
+   - Team members each submitted individual status reports to faculty advisor
+   - Continued gathering resources and researching chatbots
+   - Spoke to another faculty member (Mr.Myers), investigated their use of a chat function
+   - Spoke to another student about their previous use with a web develpment tool (potentially free domain use)
 
-## 2) Milestones to be completed next week ##
-   - debug the code to be performed by student C
+## 2) Milestones to be completed next week 5
+   - Each student chose a implementation technique/tool to research
+   - Reconvene and decide which tool to use.
 
-## 3) Issues, problems or concerns ##
-   - student C needs to learn java
-   - database repository costs big $$$
+## 3) Issues, problems or concerns 4
+   - Not sure which implementation technique is best
+   - Several tools to choose from (a lot of research to be done)
    
 
 
