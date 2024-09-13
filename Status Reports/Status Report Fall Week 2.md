@@ -13,7 +13,7 @@
 
 ## 2) Milestones to be completed next week 3
    - Research topic
-   - Collect frequently asked undergrad frequently asked questions
+   - Collect undergrad frequently asked questions
 
 ## 3) Issues, problems or concerns 2
    - No issues to report
