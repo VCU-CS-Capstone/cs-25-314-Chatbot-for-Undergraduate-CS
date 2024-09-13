@@ -7,7 +7,7 @@
 ## 1) Accomplishments this week 3
    - Investigated/Researched topics related to chatbot creation (implementation on website, common undergraduate questions, etc)
    - Found additional resources for implementation, security, web scraping, etc.
-   - Discussed Chatbot options (base, or our creation)
+   - Discussed Chatbot options (base or our creation)
    - Collected some frequently asked questions from undergraduate students
    - Investigated persons responsible for VCU domanin and website
   
