@@ -8,6 +8,7 @@
    - Met with Team
    - Met with Faculty advisor
    - Started completing Team Contract
+   - Set up schedule and sent out meeting invites
    - Setup Github
 
 ## 2) Milestones to be completed next week 3
