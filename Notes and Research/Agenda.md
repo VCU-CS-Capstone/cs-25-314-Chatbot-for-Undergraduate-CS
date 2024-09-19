@@ -1,6 +1,10 @@
 ## Agenda
+### Things to do this week 9/17/2024:
+1. **Collaborate our findings on tools**
+   - Put together a document
+   - Send it to Budwell.
 
-### Things to do this week 9/10/2024
+### Things to do this week 9/10/2024:
 
 1. **Decide on a the tools we will be using**
    - More Premade platforms
