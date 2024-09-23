@@ -59,17 +59,37 @@ processing for both cleaning the database information initially as well as clean
 | **Support and Updates**        | - Microsoft provides official support<br>- Regular updates ensure platform reliability and new features | - Frequent updates may require adjustments<br>- Compatibility with custom/school security systems can be uncertain |
 | **General Solution**           | - Scalable<br>- Flexible deployment options across platforms<br>- Easy setup with Azure | - Long-term dependency on Microsoft<br>- Costs and offical infrastructure support tied to Azure unless alternatives are explored |
 
+---
 
+**Antony Fuentes**
 
+**This description will cover Dialogflow and how it can be used to build a chatbot.**
 
+## Step 1: Using Dialogflow's rich features and prebuilt agents
+- [Dialogflow Documentation]( https://cloud.google.com/dialogflow/docs)
+- [Dialogflow Prebuilt Agents](https://cloud.google.com/dialogflow/es/docs/prebuilt-agents)
+- Dialogflow provides a user-friendly interface, comprehensive documentation, and prebuilt agents that allow for quick start-up and learning. It supports both text-based and voice-based bots.
 
+## Step 2: Multi-language support and pwerful NLP
+- Dialogflow uses Google's Natural Language Processing (NLP) capabilities to understand and handle user input in multiple languages, making it powerful for international or multi-lingual projects.
+- It also integrates easily with a wide range of programming languages, such as Python, Node.js, and Java, simplifying the development process.
 
+## Step 3: Google Cloud for hosting and scaling
+- Dialogflow integrates smoothly with Google Cloud, offering automatic scalability, load balancing, and security. Developers don’t need to worry about managing infrastructure manually
+- Google offers a free tier with limitations, but scaling can increase costs based on usage.
 
+## Step 4: Build the chatbot
+- Using Dialogflow’s console, developers can design and train the chatbot to respond to various intents and queries.
+- The bot can be deployed across multiple channels like websites, mobile apps, and messaging platforms (e.g., Facebook Messenger, Slack).
+- Dialogflow provides SDKs and APIs for further customization and integration
 
+## Pro's and Cons:
 
-
-
-
-
+| **Aspect**                    | **Pros**                                                                 | **Cons**                                                               |
+|--------------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Dialogflow Framework**    | - Intuitive and easy-to-use interface<br>- Prebuilt agents and templates available<br>-  Powerful NLP capabilities with Google's AI<br>- Supports multiple languages<br>- Flexible integration with third-party platforms | - Advanced features have a learning curve<br>- Customization requires familiarity with Google Cloud |
+| **Google Cloud Hosting**         | -  Scales automatically<br>-  Free tier available with limitations<br>- Google Cloud ensures security and load balancing<br>- Access to Google’s AI and machine learning features | -  Costs increase as usage scales<br>- Requires understanding of Google Cloud services |
+| **Support and Updates**        | - Backed by Google with regular updates<br>-  Strong developer community and comprehensive documentation | - Frequent updates may require adjustments<br>-  Limited support if not using Google Cloud for hosting |
+| **General Solution**           | - Scalable and flexible<br>-  Strong NLP and AI integrations<br>-  Easily deployable across multiple platforms (web, mobile, messaging apps) | - Full functionality relies on Google Cloud<br>- Long-term dependency on Google's infrastructure |
 
 
