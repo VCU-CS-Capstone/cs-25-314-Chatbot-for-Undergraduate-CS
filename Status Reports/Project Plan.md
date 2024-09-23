@@ -1,7 +1,7 @@
 # *Chatbot for CS*
 ## **Sponsor: Caroline Budwell**
 
-**Students' Names: Kennedy Martin, Israel Agoe-Sowah, Eric Simonie, Antony Fuentes**
+**Students' Names: Kennedy Martin, Israel Agoe-Sowah, Eric Simoni, Antony Fuentes**
 
 **Project: Create a chatbot for undergraduate CS**
 
