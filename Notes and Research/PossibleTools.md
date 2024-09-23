@@ -27,6 +27,7 @@ processing for both cleaning the database information initially as well as clean
 | **Search Functionality**       | - Can use vector similarity for better results<br>- Matches queries even when phrased differently | - Needs optimization for performance<br>- Can return irrelevant results without good embeddings or filters |
 | **General Solution**           | - Scalable<br>- Customizable<br>- Improves over time                      | - May need continuous maintenance<br>- Requires initial setup effort   |
 
+---
 
 **Eric Simoni**
 
