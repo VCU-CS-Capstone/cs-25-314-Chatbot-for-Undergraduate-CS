@@ -81,7 +81,7 @@ processing for both cleaning the database information initially as well as clean
 ## Step 4: Build the chatbot
 - Using Dialogflow’s console, developers can design and train the chatbot to respond to various intents and queries.
 - The bot can be deployed across multiple channels like websites, mobile apps, and messaging platforms (e.g., Facebook Messenger, Slack).
-- Dialogflow provides SDKs and APIs for further customization and integration
+- Dialogflow provides SDKs and APIs for further customization and integration.
 
 ## Pro's and Cons:
 
