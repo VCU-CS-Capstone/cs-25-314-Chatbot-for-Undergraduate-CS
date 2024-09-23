@@ -8,8 +8,7 @@ processing for both cleaning the database information initially as well as clean
 ## Step 2: Build a database/Fill database
 - This database will hold the cleaned information from the site (that we acquired from web scraping) and the corresponding answers
     - Need to decide what kind of database to use, potentially a relational database as a lot of the information will be courses, course prerequisites, etc.
-- When a query is sent, it will be cleaned in the background by an ml model and then matched to an "input" option in our database, then the corresponding the output/result
-  will be sent out.
+- When a query is sent, it will be cleaned in the background by an NLP and then matched to an "input" option in our database, then the corresponding the output/result will be sent out.
 ## Step 3:  
 - Build program that will accept user input, send to NLP for cleaning, search the database for the best match, and then issue a response.
 
