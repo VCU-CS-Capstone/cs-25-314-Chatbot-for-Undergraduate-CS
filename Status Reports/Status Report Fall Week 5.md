@@ -7,7 +7,8 @@
 **Date: Sept 16 - 21st** 
 
 ## 1) Accomplishments this week 5
-   - Assigned each member of the team a tool to research
+   - Researched the assigned tool
+   - Presented tool to faculty advior, received feeback
    - Kennedy -- Vercel and Traditional approach with NLP
    - 
 
