@@ -11,6 +11,9 @@ processing for both cleaning the database information initially as well as clean
 - When a query is sent, it will be cleaned in the background by an NLP and then matched to an "input" option in our database, then the corresponding the output/result will be sent out.
 ## Step 3:  
 - Build program that will accept user input, send to NLP for cleaning, search the database for the best match, and then issue a response.
+- Make sure that the backend will communicate with front-end (flask?)
+## Step 4: Build the user interface 
+- HTML, JavaScript (front-end)
 
 ## Pro's and Cons:
 
