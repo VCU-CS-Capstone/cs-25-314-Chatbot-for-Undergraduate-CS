@@ -28,6 +28,36 @@ processing for both cleaning the database information initially as well as clean
 | **General Solution**           | - Scalable<br>- Customizable<br>- Improves over time                      | - May need continuous maintenance<br>- Requires initial setup effort   |
 
 
+**Eric Simoni**
+
+**This description will cover Microsoft Bot Framework and Azure Bot Services for building a chatbot.**
+
+## Step 1: Leverage Microsoft Bot Framework's extensive documentation and sample bots
+- [Microsoft BotBuilder Samples](https://github.com/Microsoft/BotBuilder-Samples/blob/main/README.md)
+- [Azure Bot Service SDK Guide](https://learn.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0)
+- The Microsoft Bot Framework provides a variety of well-documented resources, including free downloadable sample bots, to accelerate bot development.
+
+## Step 2: Multi-language support and simple implementation
+- The framework supports multiple programming languages, such as C# and Python, making it easy to implement bots with developers' preferred languages.
+- It integrates well with existing platforms and has multi-channel support for deploying bots across various channels like web, mobile, or messaging apps.
+
+## Step 3: Microsoft Azure for hosting and scaling
+- Azure Bot Services is tightly integrated with the Bot Framework and handles overhead like scaling, security, and hosting, removing the burden of self-hosting or relying on third-party services.
+- Azure provides a 30-day free trial, which could allow for testing and exploration of its capabilities without immediate costs.
+
+## Step 4: Build the chatbot and deploy
+- Build the bot using the resources provided, ensuring integration with Azure for deployment. Microsoft also offers support during the setup process.
+- For non-Azure hosting, other options would need to be explored, which could add complexity.
+
+## Pro's and Cons:
+
+| **Aspect**                    | **Pros**                                                                 | **Cons**                                                               |
+|--------------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Microsoft Bot Framework**    | - Well-documented resources<br>- Multiple sample bots available<br>- Supports multiple languages (C#, Python)<br>- Simple to implement<br>- Multi-channel support | - Dependency on Azure for full features<br>- Hosting on non-Azure solutions adds complexity |
+| **Azure Bot Services**         | - Scalability handled by Azure<br>- Built-in support for bot development<br>- Continuous updates from Microsoft | - Azure incurs costs after trial<br>- Pricing model may be unclear<br>- Potential dependency on Microsoft infrastructure |
+| **Support and Updates**        | - Microsoft provides official support<br>- Regular updates ensure platform reliability and new features | - Frequent updates may require adjustments<br>- Compatibility with custom/school security systems can be uncertain |
+| **General Solution**           | - Scalable<br>- Flexible deployment options across platforms<br>- Easy setup with Azure | - Long-term dependency on Microsoft<br>- Costs and offical infrastructure support tied to Azure unless alternatives are explored |
+
 
 
 
