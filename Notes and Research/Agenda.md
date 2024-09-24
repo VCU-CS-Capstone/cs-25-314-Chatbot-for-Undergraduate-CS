@@ -1,4 +1,13 @@
 ## Agenda
+### Things to do this week 9/24/2024
+1. **Document Tools into a singular document**
+   - Create a document noting down the tools
+   - keep it up to date when ever we add new tools
+  
+2. Create a Questionair
+   - Come up with questions about what students are looking in a chatbot
+   - Figure out a way to distribute it to students
+     
 ### Things to do this week 9/17/2024:
 1. **Collaborate our findings on tools**
    - Put together a document
