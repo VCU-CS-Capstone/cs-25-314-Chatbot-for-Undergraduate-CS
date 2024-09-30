@@ -7,11 +7,15 @@
 **Date: Sept. 23rd - 28th**
 
 ## 1) Accomplishments this week 6
-   - Presented to faculty member -- tools 
-   - 
+   - More in depth research for tools (specifically SQLite, Python, NLP use)
+   - Created a Google doc for frequently asked undergraduate questions to send out to students
+   - Started the Project proposal
+   - Started practicing with SQLite
+   - ER diagram for database (plan layout)
 
 ## 2) Milestones to be completed next week 7
-   - 
+   - Finish and submit project proposal
+   - Hopefully start building database
 
 ## 3) Issues, problems or concerns 5
    - No issues to report 
