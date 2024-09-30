@@ -14,8 +14,8 @@
    - ER diagram for database (plan layout)
 
 ## 2) Milestones to be completed next week 7
-   - Finish and submit project proposal
+   - Continue working on project proposal
    - Hopefully start building database
 
-## 3) Issues, problems or concerns 5
+## 3) Issues, problems or concerns 6
    - No issues to report 
