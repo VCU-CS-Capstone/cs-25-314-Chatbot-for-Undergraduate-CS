@@ -6,8 +6,15 @@
   - See database code here <>
   - 
 2) User Interface: Add HTML to the vcu pages that we want the chatbot to appear under
-  - See HTML here <>
-  - 
+  - Chatbot user interface will be in a container within the HTML page and will send message information entered by the user to the backend which will then query       the database using the chatbot to be implemented.
+  - Also will populate the chatbot's responses to the user in the container
+  - HTML code for the div:
+     ![image](https://github.com/user-attachments/assets/08855de0-e1aa-4ab9-b949-43ae472e7b93)
+
+    
+  - Uses .js for fetching the text from the user-input and populates the return of the python program in the backend to jsonify the chatbot's response and repopulate it in the chatbot container
+  - Uses .css for the design of the visual and user experience portion on the website.
+    
 3) Backend:
 - See python code here <>
 - Build python program that will be responsible for sending user question to NLP for processing and return of key words
