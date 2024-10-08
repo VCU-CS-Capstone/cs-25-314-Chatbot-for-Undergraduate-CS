@@ -23,18 +23,21 @@ const botResponses = {
     "hello": "Hi there! What would you like to know?",
     "bye": "Goodbye! Have a nice day!",
     "how are you": "I'm just a bot, but I'm here to help!",
-    "Easter Egg": "I'm Batman"
+    "easter egg": "I'm Batman"
 };
 
+// Send message and save to localStorage
 function sendMessage() {
     const userInput = document.getElementById('userInput').value;
     if (userInput.trim() !== "") {
         displayMessage(userInput, 'user');
+        saveMessage(userInput, 'user');  // Save user message
         getBotResponse(userInput);
         document.getElementById('userInput').value = '';
     }
 }
 
+// Display message in the chatbox
 function displayMessage(message, sender) {
     const chatBox = document.getElementById('chatBox');
     const messageElement = document.createElement('div');
@@ -44,15 +47,32 @@ function displayMessage(message, sender) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
+// Get bot response and save it to localStorage
 function getBotResponse(userMessage) {
     const message = userMessage.toLowerCase();
     const botReply = botResponses[message] || "I'm not sure how to respond to that.";
     setTimeout(() => {
         displayMessage(botReply, 'bot');
+        saveMessage(botReply, 'bot');  // Save bot message
     }, 500); // Simulate bot thinking delay
 }
 
-// Dynamically load the chatbox into the page
+// Save message to localStorage
+function saveMessage(message, sender) {
+    const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    chatHistory.push({ message, sender });
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+}
+
+// Load chat history from localStorage
+function loadChatHistory() {
+    const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
+    chatHistory.forEach(chat => {
+        displayMessage(chat.message, chat.sender);
+    });
+}
+
+// Dynamically load the chatbox into the page and load chat history
 document.addEventListener('DOMContentLoaded', () => {
     const chatBoxHTML = `
         <div class="chat-container">
@@ -69,4 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
     document.body.insertAdjacentHTML('beforeend', chatBoxHTML);
+
+    // Load the chat history from localStorage when the page is loaded
+    window.onload = loadChatHistory();
 });
