@@ -1,4 +1,10 @@
 ## Agenda
+### Things to do this week 10/3/2024
+1. **Complete sections A-C on the project proposal**
+   - A. Problem statement
+   - B. Design requirements (B-4 is not required)
+   - C. Scope of work
+
 ### Things to do this week 9/24/2024
 1. **Document Tools into a singular document**
    - Create a document noting down the tools
