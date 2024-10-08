@@ -26,12 +26,12 @@ const botResponses = {
     "easter egg": "I'm Batman"
 };
 
-// Send message and save to localStorage
+// Send message
 function sendMessage() {
     const userInput = document.getElementById('userInput').value;
     if (userInput.trim() !== "") {
         displayMessage(userInput, 'user');
-        saveMessage(userInput, 'user');  // Save user message
+        saveMessage(userInput, 'user');  
         getBotResponse(userInput);
         document.getElementById('userInput').value = '';
     }
@@ -47,13 +47,13 @@ function displayMessage(message, sender) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Get bot response and save it to localStorage
+// Get bot response
 function getBotResponse(userMessage) {
     const message = userMessage.toLowerCase();
     const botReply = botResponses[message] || "I'm not sure how to respond to that.";
     setTimeout(() => {
         displayMessage(botReply, 'bot');
-        saveMessage(botReply, 'bot');  // Save bot message
+        saveMessage(botReply, 'bot');
     }, 500); // Simulate bot thinking delay
 }
 
