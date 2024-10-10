@@ -4,8 +4,11 @@
 
 1) Using SQlite build a database that will hold information regarding courses, computer science organizations, and computer science professors.
   - See database code here <>
-  - Estimated Size of Database: 
-  - Location of Database: 
+  - Estimated Size of Database: < 1MB
+  - Location of Database: Google Cloud storage. VCU has Google's enterprise liscensing and this will allow the chatbot to access the database from the website.
+  - Access: Read -- Chatbot , Write -- system admin (verified VCU faculty)
+  - Maintenence required: Every eight weeks approximately
+    
 2) User Interface: Add HTML to the vcu pages that we want the chatbot to appear under
   - Chatbot user interface will be in a container within the HTML page and will send message information entered by the user to the backend which will then query       the database using the chatbot to be implemented.
   - Also will populate the chatbot's responses to the user in the container
