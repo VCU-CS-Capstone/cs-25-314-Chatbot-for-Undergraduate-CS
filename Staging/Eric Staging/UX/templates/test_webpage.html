@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page with Multiple Styles</title>
     
-    <!-- Multiple styles for different sections -->
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,7 +33,7 @@
     </style>
 
     <!-- Add chatbox CSS -->
-    <link rel="stylesheet" href="chatbox.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 
@@ -49,8 +49,8 @@
     <p>Footer information</p>
 </footer>
 
-<!-- Add chatbox JS just before closing body tag -->
-<script src="chatbox.js"></script>
+<!-- Add chatbot JS just before closing body tag -->
+<script src="{{ url_for('static', filename='chatbot.js') }}"></script>
 
 </body>
 </html>

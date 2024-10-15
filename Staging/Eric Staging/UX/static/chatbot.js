@@ -17,23 +17,31 @@ function toggleChat() {
     }
 }
 
-// Example bot responses
-const botResponses = {
-    "hi": "Hello! How can I assist you today?",
-    "hello": "Hi there! What would you like to know?",
-    "bye": "Goodbye! Have a nice day!",
-    "how are you": "I'm just a bot, but I'm here to help!",
-    "easter egg": "I'm Batman"
-};
-
-// Send message
+// Send message to Flask backend
 function sendMessage() {
     const userInput = document.getElementById('userInput').value;
+    const messageBox = document.getElementById('chatBox');
+
     if (userInput.trim() !== "") {
+        // Add user message to chat
         displayMessage(userInput, 'user');
-        saveMessage(userInput, 'user');  
-        getBotResponse(userInput);
+
+        // Clear input box
         document.getElementById('userInput').value = '';
+
+        // Send user message to Flask backend
+        fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: userInput }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Add bot reply to chat
+            displayMessage(data.reply, 'bot');
+        });
     }
 }
 
@@ -47,29 +55,26 @@ function displayMessage(message, sender) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Get bot response
-function getBotResponse(userMessage) {
-    const message = userMessage.toLowerCase();
-    const botReply = botResponses[message] || "I'm not sure how to respond to that.";
-    setTimeout(() => {
-        displayMessage(botReply, 'bot');
-        saveMessage(botReply, 'bot');
-    }, 500); // Simulate bot thinking delay
-}
-
-// Save message to localStorage
+// Save message to localStorage (optional)
 function saveMessage(message, sender) {
     const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
     chatHistory.push({ message, sender });
     localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
 }
 
-// Load chat history from localStorage
+// Load chat history from localStorage (optional)
 function loadChatHistory() {
     const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
     chatHistory.forEach(chat => {
         displayMessage(chat.message, chat.sender);
     });
+}
+
+// Check for Enter key to send the message
+function checkKey(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
 }
 
 // Dynamically load the chatbox into the page and load chat history
@@ -82,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <!-- Messages will be displayed here -->
                 </div>
                 <div class="input-container">
-                    <input type="text" id="userInput" placeholder="Type a message..." onkeydown="if (event.key === 'Enter') sendMessage()">
+                    <input type="text" id="userInput" placeholder="Type a message..." onkeydown="checkKey(event)">
                     <button onclick="sendMessage()">Send</button>
                 </div>
             </div>
@@ -91,5 +96,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('beforeend', chatBoxHTML);
 
     // Load the chat history from localStorage when the page is loaded
-    window.onload = loadChatHistory();
+    loadChatHistory();
 });
