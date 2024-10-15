@@ -1,4 +1,9 @@
 ## Agenda
+### Things to do this week 10/15/2024
+1 **Start working on filling out a database**
+   - Grab Data from the bulletin
+   - Format the Data to fit a database
+
 ### Things to do this week 10/3/2024
 1. **Complete sections A-C on the project proposal**
    - A. Problem statement
