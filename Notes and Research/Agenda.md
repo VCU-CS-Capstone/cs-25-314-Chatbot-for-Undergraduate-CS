@@ -1,9 +1,16 @@
 ## Agenda
 ### Things to do this week 10/15/2024
-1 **Start working on filling out a database**
+1. **Start working on filling out a database**
    - Grab Data from the bulletin
    - Format the Data to fit a database
 
+2. **Technical Specifications**
+   - What do we need for the database?
+   - Where are we storing it?
+   - What is going to be file structure of the server?
+   - How Security works (how we check for admins or users and what not)?
+   - Program should be on the server.
+  
 ### Things to do this week 10/3/2024
 1. **Complete sections A-C on the project proposal**
    - A. Problem statement
