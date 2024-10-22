@@ -1,4 +1,12 @@
 ## Agenda
+### Things to do this week 10/22/2024
+1. **MAKE A DESIGN FOR THE WHOLE THING**
+   - What is hosting us
+   - Atleast get the database together
+
+2. **Start poster**
+   - Need to have a poster by the 7th
+
 ### Things to do this week 10/15/2024
 1. **Start working on filling out a database**
    - Grab Data from the bulletin
