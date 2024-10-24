@@ -8,11 +8,11 @@
 
 ## 1) Accomplishments this week 7
    - Finished and submitted project proposal
-   - Created and completed a detailed plan for each portion
+   - Created and a detailed plan for each portion
    - Shared code on github for other team members to study/observe
 
 ## 2) Milestones to be completed next week 8
    - Database work
 
 ## 3) Issues, problems or concerns 7
-   - 
+   - None to report
