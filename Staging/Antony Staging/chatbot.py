@@ -6,8 +6,7 @@ import re
 # Dictionary of synonyms
 synonyms = {
     "cs": "computer science",
-    "c.s.": "computer science",
-    "cmsc": "course"
+    "c.s.": "computer science"
 }
 
 # List of phrases to detect instructor-related questions
