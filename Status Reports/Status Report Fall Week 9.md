@@ -13,8 +13,6 @@
 ## 2) Milestones to be completed next week 10
    - Database - more work
    - More information on Google Server
-   - Talk to webmaster about implementation
-   - Need to complete detailed plan
 
 ## 3) Issues, problems or concerns 9
    - None to report
