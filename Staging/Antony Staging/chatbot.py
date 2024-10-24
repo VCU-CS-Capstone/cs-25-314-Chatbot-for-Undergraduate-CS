@@ -9,7 +9,8 @@ synonyms = {
     "c.s.": "computer science"
 }
 
-# List of phrases to detect instructor-related questions
+
+# List of phrases to detect instructor-related questions (This will get deleted)
 instructor_phrases = [
     "who teaches",
     "who is the teacher",
@@ -32,7 +33,7 @@ def preprocess_text(text):
     
     return text
 
-# Function to get all keywords from multiple tables in the database
+# Function to get all keywords from multiple tables in the database (Everything but main data will get deleted eventually)
 def get_all_keywords_from_db():
     conn = sqlite3.connect('my_database.db')
     cursor = conn.cursor()
