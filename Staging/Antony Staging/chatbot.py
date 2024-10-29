@@ -1,121 +1,157 @@
 import sqlite3
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 import re
-import random
-from collections import Counter
-from nltk.corpus import stopwords
 
-# Synonyms
+# Dictionary of synonyms
 synonyms = {
     "cs": "computer science",
-    "c.s.": "computer science",
-    "comp sci": "computer science"
+    "c.s.": "computer science"
 }
 
-# Function to preprocess the text by replacing synonyms and removing stop words
+
+# List of phrases to detect instructor-related questions (This will get deleted)
+instructor_phrases = [
+    "who teaches",
+    "who is the teacher",
+    "who is the professor",
+    "who instructs",
+    "who is the instructor"
+]
+
+# Function to preprocess the text by replacing synonyms
 def preprocess_text(text):
-    # Convert text to lowercase
+    if not text:  # Check if the text is None or empty
+        return ""
+
+    # Convert text to lowercase for uniformity
     text = text.lower()
 
-    # Replace synonyms
+    # Replace synonyms in the text
     for abbr, full_form in synonyms.items():
         text = re.sub(r'\b' + re.escape(abbr) + r'\b', full_form, text)
-
-    # Remove special characters and numbers
-    text = re.sub(r'[^a-z\s]', '', text)
-
-    # Tokenize and remove stopwords
-    words = text.split()
-    stop_words = set(stopwords.words('english'))
-    words = [word for word in words if word not in stop_words]
     
-    return words  # Return a list of keywords
+    return text
 
-# Function to get all questions from the database
-def get_all_questions_from_db():
-    conn = sqlite3.connect('cs_faq.db')
+# Function to get all keywords from multiple tables in the database (Everything but main data will get deleted eventually)
+def get_all_keywords_from_db():
+    conn = sqlite3.connect('my_database.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT question FROM faq")
-    questions = cursor.fetchall()
+    
+    # Get keywords from main_data
+    cursor.execute("SELECT keyword FROM main_data")
+    main_data_keywords = [k[0] for k in cursor.fetchall()]
+    
+    # Get course names and course IDs from Courses
+    cursor.execute("SELECT CourseName, CourseID FROM Courses")
+    course_data = cursor.fetchall()
+    course_keywords = [k[0] for k in course_data] + [k[1] for k in course_data]
+    
+    # Get instructor names from Instructors
+    cursor.execute("SELECT InstructorName FROM Instructors")
+    instructor_keywords = [k[0] for k in cursor.fetchall()]
+    
+    # Get organization names from Organizations
+    cursor.execute("SELECT OrganizationName FROM Organization")
+    organization_keywords = [k[0] for k in cursor.fetchall()]
+    
     conn.close()
-    
-    return [q[0] for q in questions]  # Return a list of questions
 
-# Function to get the answer for a specific question
-def get_answer_for_question(question):
-    conn = sqlite3.connect('cs_faq.db')
+    # Combine all keywords into one list
+    return main_data_keywords + course_keywords + instructor_keywords + organization_keywords
+
+# Function to get response based on the matched keyword and the user's question context
+def get_response_for_keyword(keyword, user_question):
+    conn = sqlite3.connect('my_database.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT answer FROM faq WHERE question = ?", (question,))
+
+    # Check if the user is asking about the instructor for a course
+    if any(phrase in user_question for phrase in instructor_phrases):
+        # Check Courses table for matching course
+        cursor.execute("SELECT CourseInstructor FROM Courses WHERE CourseID = ? OR CourseName = ?", (keyword, keyword))
+        result = cursor.fetchone()
+        if result:
+            instructor_name = result[0] if result[0] else "None"
+            conn.close()
+            return f"The instructor for {keyword} is: {instructor_name}", None
+
+    # Check main_data table for matching keyword
+    cursor.execute("SELECT response, resource FROM main_data WHERE keyword = ?", (keyword,))
     result = cursor.fetchone()
-    conn.close()
-    
     if result:
-        return result[0]
-    else:
-        return None
+        conn.close()
+        return result
 
-# Function to find the best match using keyword-based matching
+    # Check Courses table for matching course (both CourseName and CourseID)
+    cursor.execute("SELECT CourseName, CourseDescrip, CourseInstructor FROM Courses WHERE CourseID = ? OR CourseName = ?", (keyword, keyword))
+    result = cursor.fetchone()
+    if result:
+        course_name = result[0]
+        course_description = result[1]
+        course_instructor = result[2] if result[2] else "None"
+        response = f"Course Name: {course_name}\nCourse Description: {course_description}\nTaught by: {course_instructor}"
+        conn.close()
+        return response, None  # No resource for courses
+
+    # Check Instructors table for matching instructor
+    cursor.execute("SELECT InstructorCourses, InstructorResearch FROM Instructors WHERE InstructorName = ?", (keyword,))
+    result = cursor.fetchone()
+    if result:
+        response = f"Instructor Courses: {result[0]}. Research Areas: {result[1]}."
+        conn.close()
+        return response, None  # No resource for instructors
+
+    # Check Organizations table for matching organization
+    cursor.execute("SELECT OrganizationDesc, FalcultySponsor FROM Organization WHERE OrganizationName = ?", (keyword,))
+    result = cursor.fetchone()
+    if result:
+        response = f"Organization Description: {result[0]}. Faculty Sponsor: {result[1]}."
+        conn.close()
+        return response, None  # No resource for organizations
+
+    conn.close()
+    return None  # If no match found
+
+# Function to find the best matching keyword and return the response and resource
 def find_best_match(user_question):
     # Preprocess the user's question
-    user_keywords = preprocess_text(user_question)
+    user_question = preprocess_text(user_question)
 
-    # Get all questions from the database
-    questions = get_all_questions_from_db()
+    # Get all keywords from the database
+    keywords = get_all_keywords_from_db()
 
-    # Preprocess all FAQ questions
-    question_keywords = [preprocess_text(q) for q in questions]
+    # Preprocess all keywords before matching
+    preprocessed_keywords = [preprocess_text(k) for k in keywords]
 
-    # Find the question with the most matching keywords
-    best_match = None
-    best_score = 0
+    # Use fuzzy matching to find the best match
+    best_match, best_score = process.extractOne(user_question, preprocessed_keywords, scorer=fuzz.token_sort_ratio)
 
-    for i, keywords in enumerate(question_keywords):
-        common_keywords = Counter(keywords) & Counter(user_keywords)  # Count the matching keywords
-        score = sum(common_keywords.values())  # Calculate the score based on matching keywords
-
-        if score > best_score:
-            best_score = score
-            best_match = questions[i]
-
-    # If a good match is found, return the corresponding answer
-    if best_score > 0:  # If at least one keyword matches
-        return get_answer_for_question(best_match)
+    # If the match score is high enough, return the corresponding response and resource
+    if best_score > 50:  # Lower the threshold
+        original_keyword = keywords[preprocessed_keywords.index(best_match)]
+        response_data = get_response_for_keyword(original_keyword, user_question)
+        if response_data:
+            response, resource = response_data
+            if resource:
+                return f"{response}\nFor more information, visit: {resource}"
+            return response
     else:
-        return None
+        return "Sorry, I couldn't find an answer that matches your question closely enough."
 
-# Function to make it more conversational
-def conversational_response(answer):
-    conversational_phrases = [
-        "Good question! ",
-        "I'm glad you asked. "
-    ]
-    if answer:
-        return random.choice(conversational_phrases) + answer
-    else:
-        return "I'm sorry, I couldn't find anything related to that. Could you try rephrasing or ask a different question?"
-
-# Chatbot loop with improved conversation (Add more)
 def chatbot():
-    greetings = [
-        "Hello! How can I assist you with your CS questions today?",
-        "Hi there! I'm here to help with any questions about the undergraduate CS program.",
-        "Welcome! Feel free to ask me anything about CS!"
-    ]
-    
-    print(random.choice(greetings))  # Displays a random greeting
+    print("Welcome to the VCU CS Chatbot. Ask me anything about the undergraduate CS program.")
     
     while True:
         user_question = input("You: ").strip()
 
         if user_question.lower() == "exit":
-            print("Chatbot: Goodbye! Feel free to come back anytime.")
+            print("Chatbot: Goodbye!")
             break
 
-        # Find the best matching question and get the answer
+        # Find the best matching keyword and get the response and resource
         answer = find_best_match(user_question)
-
-        # Give a conversational response
-        response = conversational_response(answer)
-        print(f"Chatbot: {response}")
+        
+        print(f"Chatbot: {answer}")
 
 if __name__ == "__main__":
     chatbot()
