@@ -117,5 +117,5 @@ def chatbot():
         response = conversational_response(answer)
         print(f"Chatbot: {response}")
 
-if __name__ == "__main__":
+if __name__ == "__chatbot__":
     chatbot()
