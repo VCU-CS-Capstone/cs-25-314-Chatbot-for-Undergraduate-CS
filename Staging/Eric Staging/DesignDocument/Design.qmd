@@ -34,6 +34,8 @@ digraph G {
 }
 ```
 
+The design centers on a Python-based chatbot hosted in the cloud, facilitating a streamlined and accessible interface for Computer Science program inquiries. The cloud-hosted environment enables stable connections to an SQLite database that stores FAQ data, which the chatbot queries to process user questions. After retrieving relevant information, the chatbot outputs responses to the front-end, where users interact directly, ensuring efficient and conversational assistance for users navigating program details and resources.
+
 # Cross Site Implementation
 
 The VCU Chatbot will be integrated across the VCU website to provide assistance for students navigating the Computer Science bachelor's degree program. This section details the strategy for deploying the chatbot on specific parts of the website while maintaining a consistent experience.
@@ -134,7 +136,6 @@ The VCU Chatbot will be integrated across the VCU website to provide assistance 
          return render_template('<page name>.html', load_chatbot=True)
      ```
 
-<!--ARE WE HOSTING THE APP ON OUR OWN SITE???-->
 # Chatbot implementation
 
 The chatbot uses a combination of keyword matching and natural language processing techniques to understand user questions and provide relevant answers. The primary workflow involves querying a database of frequently asked questions (FAQs) about the Computer Science program and returning appropriate responses. This section outlines the steps taken by the chatbot to process a user's input, find a matching question, and generate a conversational response.
@@ -257,9 +258,19 @@ The chatbot uses a combination of keyword matching and natural language processi
 
    - The chatbot continuously interacts with the user in a loop, accepting new questions and providing responses, and when the user wants to hide the chat bot it will be easy to do by clicking on the chatbot heading.
 
+7. **Dependencies Needed**
 
-This workflow enables the chatbot to effectively query the database, match user questions to stored FAQs, and respond in a conversational manner.
+   The following dependencies are required to run the chatbot application:
 
+   - **Backend**:
+     - Flask: For handling HTTP requests and serving HTML templates.
+       - Size: Approx. 1KB
+     
+   - **Chatbot Libraries**:
+     - **NLTK (Natural Language Toolkit)**: Specifically, `nltk.corpus` is used for natural language processing tasks.
+     - **Collections**: For counting hashable objects within the chatbot logic.
+     - **re (Regular Expressions)**: Essential for language processing, such as parsing and replacing patterns within the user input.
+     - **Random**: Used to provide variety in responses by choosing randomly from a set of possible greetings. 
 
 # Database Design
 
@@ -296,28 +307,45 @@ The decision to use a single-table structure was made to optimize database queri
 This setup enables a fast and targeted response system, ideal for the chatbot’s primary goal of answering FAQs about the Computer Science program at VCU. 
 
 
-# **Everything below is Subject to change based on today**
 # Cloud Hosting
 
-To ensure high availability, scalability, and efficient resource management, we are utilizing Google Cloud Platform (GCP) for hosting the VCU Chatbot. Google Cloud’s extensive suite of services offers flexible and reliable solutions tailored to the needs of web applications, making it well-suited for our chatbot's deployment.
+The hosting requirements for the VCU Chatbot are designed to allow flexible deployment that supports integration across VCU websites with minimal user traffic directly on the hosting domain. Two primary options are considered based on VCU’s infrastructure capabilities.
 
-## Services and Resources
+## 1. On-Premise Hosting by VCU
 
-The primary services leveraged within GCP include:
+### Ideal Hosting Scenario
 
-1. **Google App Engine**: Google App Engine (GAE) provides a serverless environment that allows us to deploy the chatbot without needing to manage underlying infrastructure. App Engine automatically scales to accommodate traffic, ensuring the chatbot remains responsive during high-demand periods.
+If VCU can accommodate the chatbot’s deployment directly on their infrastructure, this option would simplify integration. By hosting the Python-based chatbot app within VCU’s own systems, direct queries to the SQLite FAQ database would ensure efficient interaction without needing external calls, minimizing latency and providing a seamless experience for students.
 
-2. **Google Cloud Storage**: This service is used for hosting static assets, such as JavaScript and CSS files, making them accessible to the chatbot across various pages on the VCU website. By serving these assets through Google Cloud Storage, we ensure fast loading times and easy updates across all chatbot-enabled pages.
+### Implementation Details
 
-## Security and Access Control
+1. **Application Hosting**:
+   - **VCU’s Server Compatibility**: The application will need a server compatible with at least Python 3.x.
+   - **Database**: The database can be held anywhere as long as the flask application has access, with the current canidate for hosting it being Google's cloud services.
+   - **Backend Access**: Flask will handle HTTP requests, and conditional routing logic will determine when the chatbot is active on specific VCU website sections (e.g., `/undergraduate/`).
 
-Google Cloud offers several security features that protect the chatbot and its data:
+2. **Integration via VCU Site**:
+   - **Direct Embedding**: Using base template modifications and conditional flags within VCU's templates, the chatbot can be activated on designated pages.
+   - **JavaScript Integration**: VCU’s frontend can use centralized JavaScript to dynamically insert the chatbot where required.
 
-- **Identity and Access Management (IAM)**: IAM policies restrict access to sensitive resources, ensuring that only authorized users and services can interact with the database and application files.
-- **SSL Encryption**: Data in transit between the chatbot and users is encrypted using SSL, safeguarding user interactions and queries.
-- **Automated Backups**: GCP's automated backup features allow us to maintain regular backups of our database, minimizing data loss risk and ensuring service continuity.
+3. **Security and Maintenance**:
+   - VCU would manage security, database backups, and scalability to match expected usage, which may only see high activity during orientation or key registration periods.
 
-## Deployment Workflow
+## 2. External Hosting on Google Cloud (if VCU Hosting Is Unavailable)
 
-1. **Development and Testing**: We use a local environment for development and testing. Once verified, the chatbot is deployed to App Engine through GCP’s command-line interface.
-2. **Continuous Integration and Deployment**: GCP integrates with CI/CD pipelines, allowing us to automate deployments and maintain version control. Updates are seamlessly propagated, ensuring that users access the latest version of the chatbot without downtime.
+If VCU’s systems cannot directly support the Python chatbot app, Google Cloud Platform (GCP) provides a robust alternative. Here, the chatbot app would be hosted as a standalone web service, accessible via API.
+
+### Implementation Details
+
+1. **Application Hosting on Google Cloud**:
+   - **App Engine**: Is a cost-effective choice, with App Engine offering serverless hosting for Flask applications, and Cloud Run providing containerized deployment options.
+   - **API Setup**: Flask’s endpoints can be configured to respond to API requests from VCU’s site, handling user queries and returning results for display within the chatbot UI.
+
+2. **Integration via API Calls**:
+   - **Frontend Embedding on VCU’s Site**: With API-based hosting, VCU’s website would send user queries to the chatbot hosted on GCP, which would process and return responses.
+   - **API Security**: API keys, IP whitelisting, and limited access control ensure only VCU’s frontend can make requests, maintaining data security and compliance.
+
+3. **Reliability and Scaling**:
+   - Google Cloud’s auto-scaling features handle any fluctuation in traffic and ensure availability, though minimal traffic is expected. Logs and monitoring via Google’s dashboard provide insights into app usage and performance.
+
+This dual-option approach ensures the chatbot’s hosting solution is adaptable to VCU’s infrastructure capabilities, providing both direct hosting and cloud-based alternatives as needed.
