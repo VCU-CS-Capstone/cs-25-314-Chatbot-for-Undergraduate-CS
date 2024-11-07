@@ -1,100 +1,88 @@
 import sqlite3
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 import re
-import random
-from collections import Counter
+import nltk
 from nltk.corpus import stopwords
-
-
-
-
+from nltk.tokenize import word_tokenize
+import string
 
 class Chatbot:
-    def __init__(self, db_path='cs_faq.db'):
-        self.db_path = db_path
-        self.synonyms = {
-            "cs": "computer science",
-            "c.s.": "computer science",
-            "comp sci": "computer science"
-        }
-        # self.stop_words = set(stopwords.words('english'))
+    def __init__(self):
+       self.synonyms = {
+           "cs": "computer science",
+            "c.s.": "computer science"
+       }
 
-    def preprocess_text(self, text):
-        # Convert text to lowercase
+    # Function to preprocess the text by replacing synonyms, removing stopwords, and punctuation
+    def preprocess_text(self,text):
+        if not text:  # Check if the text is None or empty
+            return ""
+
+        # Convert text to lowercase for uniformity
         text = text.lower()
 
-        # Replace synonyms
+        # Replace synonyms in the text
         for abbr, full_form in self.synonyms.items():
             text = re.sub(r'\b' + re.escape(abbr) + r'\b', full_form, text)
 
-        # Remove special characters and numbers
-        text = re.sub(r'[^a-z\s]', '', text)
+        # Tokenize text and remove stopwords
+        tokens = word_tokenize(text)
+        stop_words = set(stopwords.words("english"))
+        tokens = [word for word in tokens if word not in stop_words and word not in string.punctuation]
 
-        # Tokenize and remove stopwords
-        words = text.split()
-        stop_words = set(stopwords.words('english'))
-        words = [word for word in words if word not in stop_words]
+        # Rejoin tokens into a string
+        return " ".join(tokens)
 
-        return words
-
-    def get_all_questions_from_db(self):
-        conn = sqlite3.connect(self.db_path)
+    def get_all_keywords_from_db(self):
+        conn = sqlite3.connect('my_database.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT question FROM faq")
-        questions = cursor.fetchall()
+
+        # Get keywords from main_data
+        cursor.execute("SELECT keyword FROM main_data")
+        main_data_keywords = [k[0] for k in cursor.fetchall()]
+
         conn.close()
+        return main_data_keywords
 
-        return [q[0] for q in questions]
-
-    def get_answer_for_question(self, question):
-        conn = sqlite3.connect(self.db_path)
+    # Function to get response based on the matched keyword and the user's question context
+    def get_response_for_keyword(self, keyword):
+        conn = sqlite3.connect('my_database.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT answer FROM faq WHERE question = ?", (question,))
+
+        # Check main_data table for matching keyword
+        cursor.execute("SELECT response, resource FROM main_data WHERE keyword = ?", (keyword,))
         result = cursor.fetchone()
         conn.close()
 
-        if result:
-            return result[0]
-        else:
-            return None
+        return result if result else None
 
     def find_best_match(self, user_question):
         # Preprocess the user's question
-        user_keywords = self.preprocess_text(user_question)
+        user_question = self.preprocess_text(user_question)
 
-        # Get all questions from the database
-        questions = self.get_all_questions_from_db()
+        # Get all keywords from the database
+        keywords = self.get_all_keywords_from_db()
 
-        # Preprocess all FAQ questions
-        question_keywords = [self.preprocess_text(q) for q in questions]
+        # Preprocess all keywords before matching
+        preprocessed_keywords = [self.preprocess_text(k) for k in keywords]
 
-        # Find the question with the most matching keywords
-        best_match = None
-        best_score = 0
+        # Use fuzzy matching to find the best match
+        best_match, best_score = process.extractOne(user_question, preprocessed_keywords, scorer=fuzz.token_sort_ratio)
 
-        for i, keywords in enumerate(question_keywords):
-            common_keywords = Counter(keywords) & Counter(user_keywords)
-            score = sum(common_keywords.values())
-
-            if score > best_score:
-                best_score = score
-                best_match = questions[i]
-
-        # Return the corresponding answer if a match is found
-        if best_score > 0:
-            return self.get_answer_for_question(best_match)
+        # If the match score is high enough, return the corresponding response and resource
+        if best_score > 50:
+            original_keyword = keywords[preprocessed_keywords.index(best_match)]
+            response_data = self.get_response_for_keyword(original_keyword)
+            if response_data:
+                response, resource = response_data
+                if resource:
+                    return f"{response}\nFor more information, visit: {resource}"
+                return response
         else:
-            return None
+            return "Sorry, I couldn't find an answer that matches your question closely enough."
 
-    def conversational_response(self, answer):
-        conversational_phrases = [
-            "Good question! ",
-            "I'm glad you asked. "
-        ]
-        if answer:
-            return random.choice(conversational_phrases) + answer
-        else:
-            return "I'm sorry, I couldn't find anything related to that. Could you try rephrasing or ask a different question?"
-
-    def ask(self, user_question):
+    def chatbot(self, user_question):
+        # Find the best matching keyword and get the response and resource
         answer = self.find_best_match(user_question)
-        return self.conversational_response(answer)
+        return answer

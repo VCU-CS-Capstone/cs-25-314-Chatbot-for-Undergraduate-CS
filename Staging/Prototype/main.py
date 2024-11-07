@@ -12,7 +12,7 @@ def test_webpage():
 def chat():
     # request.json
     user_input= request.json.get('message')
-    bot_reply = chatbot.ask(user_input)
+    bot_reply = chatbot.chatbot(user_input)
     return jsonify({'reply': bot_reply})
 
 if __name__ == '__main__':
