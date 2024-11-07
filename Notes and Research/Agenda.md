@@ -1,4 +1,12 @@
 ## Agenda
+### Things to do this week 10/07/2024
+1. **Finalize Poster**
+   - Just do the little tweaks to make it good
+   - Make sure Budwell has it in an editable form
+2. **Continue Work on prototype**
+   - Fill out the database more
+   - Make sure it is actually working
+
 ### Things to do this week 10/22/2024
 1. **MAKE A DESIGN FOR THE WHOLE THING**
    - What is hosting us
