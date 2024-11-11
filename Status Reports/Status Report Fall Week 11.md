@@ -15,9 +15,9 @@
    - Researching RAG
 
 ## 2) Milestones to be completed next week 12
-- Connect all of the code
-- Test the keyword portion of the database
-- As long as all goes well continue building database 
+   - Meet with Dustin
+   - Continue front and back end code development
+   - Document for implementation
 
 ## 3) Issues, problems or concerns 11
    - REALLY difficult to find the VCU faculty member who has access to Ivy.ai
