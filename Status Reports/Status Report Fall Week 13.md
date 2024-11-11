@@ -6,11 +6,11 @@
 
 **Date: Nov. 4th - Nov. 10th**
 
-## 1) Accomplishments this week 12
+## 1) Accomplishments this week 13
    - 
 
-## 2) Milestones to be completed next week 13
+## 2) Milestones to be completed next week 14
    
 
-## 3) Issues, problems or concerns 12
+## 3) Issues, problems or concerns 13
    - None to report
