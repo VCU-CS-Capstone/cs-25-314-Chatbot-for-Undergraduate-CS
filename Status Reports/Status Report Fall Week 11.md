@@ -15,7 +15,10 @@
    - Researching RAG
 
 ## 2) Milestones to be completed next week 12
-   
+- Connect all of the code
+- Test the keyword portion of the database
+- As long as all goes well continue building database 
 
 ## 3) Issues, problems or concerns 11
-   - None to report
+   - REALLY difficult to find the VCU faculty member who has access to Ivy.ai
+   - Need to make sure the database works with the python code before continuing build
