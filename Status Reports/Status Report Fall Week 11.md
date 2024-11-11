@@ -6,7 +6,7 @@
 
 **Date: Oct. 21st - Oct. 27th**
 
-## 1) Accomplishments this week 9
+## 1) Accomplishments this week 11
    - Worked on database manual entry
    - Loaded database code onto Github
    - Updated Status Reports on Github
@@ -14,8 +14,8 @@
    - Looking into IVY.ai -- a chatbot VCU already uses
    - Researching RAG
 
-## 2) Milestones to be completed next week 10
+## 2) Milestones to be completed next week 12
    
 
-## 3) Issues, problems or concerns 9
+## 3) Issues, problems or concerns 11
    - None to report
