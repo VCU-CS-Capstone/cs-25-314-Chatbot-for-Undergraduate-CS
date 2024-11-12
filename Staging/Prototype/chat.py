@@ -7,6 +7,10 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
 
+# Ensure the necessary NLTK resources are downloaded
+nltk.download('punkt')
+nltk.download('stopwords')
+
 class Chatbot:
     def __init__(self):
        self.synonyms = {
@@ -15,7 +19,7 @@ class Chatbot:
        }
 
     # Function to preprocess the text by replacing synonyms, removing stopwords, and punctuation
-    def preprocess_text(self,text):
+    def preprocess_text(self, text):
         if not text:  # Check if the text is None or empty
             return ""
 
