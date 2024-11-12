@@ -14,6 +14,7 @@
 
 ## 2) Milestones to be completed next week 9
    - Database work
+   - Test implementation of front end program on test website
 
 ## 3) Issues, problems or concerns 8
    - None to report
