@@ -10,9 +10,11 @@
    - Finished and submitted project proposal
    - Created and a detailed plan for each portion
    - Shared code on github for other team members to study/observe
+   - Have a working front-end program for communication between user and to be made chatbot
 
 ## 2) Milestones to be completed next week 9
    - Database work
+   - Test implementation of front end program on test website
 
 ## 3) Issues, problems or concerns 8
    - None to report

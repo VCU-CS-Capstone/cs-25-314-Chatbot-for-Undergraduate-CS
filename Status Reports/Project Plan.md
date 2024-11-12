@@ -19,13 +19,13 @@
 | _Week 2_ | _Group Assignments_ | _Get to know Group_ |
 | _Week 3_ | _Initial Project documentation_ | _Project Understanding_ |
 | _Week 4_ | _Research_ | _Project Plan & Outline_ |
-| _Week 5_ | ... | ... |
-| _Week 6_ | ... | ... |
-| _Week 7_ | ... | ... |
-| _Week 8_ | ... | ... |
-| _Week 9_ | ... | ... |
-| _Week 10_ | ... | ... |
-| _Week 11_ | ... | ... |
+| _Week 5_ | _Research tools_ |_Decide on Project tools, environment, etc_ |
+| _Week 6_ | _Create FAQ's, Project Proposal, ER diagram_ | _Start database build, Complete planning phase_ |
+| _Week 7_ | Continue building database, Continue working on project proposal_ | _Finish up project proposal, Start front and back end programs_ |
+| _Week 8_ | _Submit Proposal, Create a detailed plan/document for project implementation, share all code to Github_ | _Review each others progress and code, Begin/Work on implementation plan_ |
+| _Week 9_ | _Keep building database, research database storage_ | _Build up database enough to begin testing_ |
+| _Week 10_ | _Researched different server options for implementation, Continue database work_ | _Get ready to meet with webmaster about specific implementation_ |
+| _Week 11_ | _Met with webmaster, researched Ivy.ai, Research RAG technique_ | _See what VCU requirements for implementation, discover other opportunities for implementation_ |
 | _Week 12_ | ... | ... |
 | _Week 13_ | ... | ... |
 | _Week 14_ | ... | ... |
