@@ -10,7 +10,7 @@
    - Researched the assigned tool
    - Presented tool to faculty advior, received feeback
    - Kennedy -- Vercel and Traditional approach with NLP
-   - 
+   - Israel -- Chatterbot
 
 ## 2) Milestones to be completed next week 6
    - Discuss with faculty member the tools we researched
