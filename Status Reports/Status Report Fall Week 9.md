@@ -9,6 +9,7 @@
 ## 1) Accomplishments this week 9
    - Worked on database manual entry
    - Looked into phpadmin as a database server
+   - Looked into using keywords for our code
 
 ## 2) Milestones to be completed next week 10
    - Database - more work

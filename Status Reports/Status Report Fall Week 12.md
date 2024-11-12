@@ -10,6 +10,7 @@
    - Met with Dustin
       - Requirements for implementation are very light
    - Presented implementation document to faculty advisor
+   - Updated the code to work with our database 
 
 ## 2) Milestones to be completed next week 13
    - Start Poster

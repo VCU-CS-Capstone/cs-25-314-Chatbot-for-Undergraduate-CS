@@ -11,6 +11,7 @@
    - Started implementation of database using SQLite
    - Worked on project proposal (assigned each member a portion)
    - Worked on the front end and back end programs
+   - Worked on developing the chatbot program
 
 ## 2) Milestones to be completed next week 8
    - Finish and submit project proposal
