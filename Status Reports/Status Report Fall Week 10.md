@@ -10,7 +10,7 @@
    - Worked on database manual entry
    - Looked into Google server more (Google cloud as well as Google SQL)
        - Plan options are VERY inexpensive
-
+       
 ## 2) Milestones to be completed next week 11
    - Database - more work
    - Talk to webmaster about implementation

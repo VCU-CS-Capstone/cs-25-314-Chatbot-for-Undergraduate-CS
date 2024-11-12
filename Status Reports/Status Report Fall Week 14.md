@@ -12,7 +12,7 @@
    - Updated Github again
    - Build more of the database
         - included the FAQ's retrieved from questionaire
-   - 
+   - Fix some obvious bugs the chatbot was having
 
 ## 2) Milestones to be completed next week 15
    - 

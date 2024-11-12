@@ -10,6 +10,7 @@
    - Continued gathering resources and researching chatbots
    - Spoke to another faculty member (Mr.Myers), investigated their use of a chat function
    - Spoke to another student about their previous use with a web develpment tool (potentially free domain use)
+   - Messaged Benjamin Meyers about information on the VCU chat feature 
 
 ## 2) Milestones to be completed next week 5
    - Each student chose a implementation technique/tool to research

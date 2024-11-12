@@ -10,6 +10,8 @@
    - Worked on database manual entry
    - Looked into phpadmin as a database server
    - Have front end program running properly on a local test website
+   - Looked into using keywords for our code
+
 
 ## 2) Milestones to be completed next week 10
    - Database - more work
