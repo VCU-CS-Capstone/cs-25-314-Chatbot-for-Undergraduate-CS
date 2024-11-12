@@ -9,6 +9,7 @@ import string
 
 # Make sure the necessary NLTK resources are downloaded
 nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('stopwords')
 
 class Chatbot:
