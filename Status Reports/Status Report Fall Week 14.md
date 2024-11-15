@@ -15,7 +15,9 @@
    - Fix some obvious bugs the chatbot was having
 
 ## 2) Milestones to be completed next week 15
-   - 
+   - Work on the project proposal documentation (assign each person a part)
+   - Continue working out the bugs for the keywords in the prototype
+   - Try to implement RAG -- this may fix some of our database issues
 
 ## 3) Issues, problems or concerns 14
    - None to report
