@@ -13,7 +13,9 @@
 
 ## 2) Milestones to be completed next week 14
    - Test the prototype -- see if any changes need to be made
-   - Start to build database some more
+   - Start to build database some more (Add in the responses from questionaire)
+   - Complete and submit poster
+   - Work on continuation of Project Proposal Document
 
 ## 3) Issues, problems or concerns 13
    - Building the database is time consuming
