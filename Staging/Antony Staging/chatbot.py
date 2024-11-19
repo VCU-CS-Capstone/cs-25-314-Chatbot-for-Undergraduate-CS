@@ -78,11 +78,8 @@ def find_best_match(user_question):
         response_data = get_response_for_keyword(original_keyword)
         if response_data:
             response, resource = response_data
-            if resource:
-                return f"{response}\nFor more information, visit: {resource}"
-            return response
-    else:
-        return "Sorry, I couldn't find an answer that matches your question closely enough."
+            return [response, resource]  # Format the response as a list
+    return ["Sorry, I couldn't find an answer that matches your question closely enough.", None]
 
 def chatbot(user_question):
     # Find the best matching keyword and get the response and resource
@@ -93,4 +90,7 @@ print("Welcome to the VCU CS Chatbot. Ask me anything about the undergraduate CS
 while True:
     user_question = input("You: ").strip()
     response = chatbot(user_question)
-    print(f"Chatbot: {response}")
+    if response[1]:  # If there is a link
+        print(f"Chatbot: {response[0]} For more information, visit: {response[1]}")
+    else:
+        print(f"Chatbot: {response[0]}") # No link
