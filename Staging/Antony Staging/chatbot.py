@@ -7,6 +7,10 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
 
+# Make sure the necessary NLTK resources are downloaded
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
 
 # Dictionary of synonyms
 synonyms = {
