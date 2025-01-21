@@ -24,17 +24,17 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Week 11 Status Report | Database, Update Github | Loaded all code onto Github to review, Researched Ivy.ai, Researched RAG, reach out to webmaster | Very hard to find faculty member involved in Ivy.ai, Need to make sure current code works with database |
 | Week 12 Status Report |  Meet with webmaster, determine VCU requirements for implementation, finish implementation doc | Presented implementation doc to faculty advisor, Met with webmaster | Update/change implementation document |
 | Week 13 Status Report | Work on poster, work on prototype | Eric and Kennedy worked on poster, Israel and Antony worked on combining code | No issues |
-| Week 14 Status Report | | | |
-| Week 15 Status Report | | | |
-| Week 16 Status Report | | | |
+| Week 14 Status Report | | | No issues |
+| Week 15 Status Report | | | No issues |
+| Week 16 Status Report | | | No issues |
 
 ## Spring Semester
 
 | Document | Tasks | Accomplishments| Issues |
 |---|---|---|---|
-| Week 1 Status Report | | | |
-| Week 2 Status Report | | | |
-| Week 3 Status Report | | | |
+| Week 1 Status Report | NA | Met with team | NA |
+| Week 2 Status Report | NA | Figured out Faculty meeting times | NA |
+| Week 3 Status Report | Work on team contract, Spring semester Plan | | NA |
 | Week 4 Status Report | | | |
 | Week 5 Status Report | | | |
 | Week 6 Status Report | | | |
