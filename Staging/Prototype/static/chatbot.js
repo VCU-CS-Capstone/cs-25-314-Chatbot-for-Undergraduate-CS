@@ -24,7 +24,7 @@ function sendMessage() {
 
   if (userInput.trim() !== "") {
     // Add user message to chat
-    displayMessage(userInput, "user");
+    displayUserMessage(userInput, "user");
 
     // Clear input box
     document.getElementById("userInput").value = "";
@@ -40,25 +40,53 @@ function sendMessage() {
       .then((response) => response.json())
       .then((data) => {
         // Add bot reply to chat
-        displayMessage(data.reply, "bot");
+        displayBotMessage(data.reply, "bot");
       });
   }
 }
 
-// Display message in the chatbox
-function displayMessage(message, sender) {
+// Display message functions
+
+function displayBotMessage([text, link = ""]) {
   const chatBox = document.getElementById("chatBox");
   const messageElement = document.createElement("div");
 
-  const [text, link] = data;
-  messageElement.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+  // Destructure the message array into text and link
+  // const [text, link] = message; // Expecting message as ["text", "link"]
 
+  // Add bot-specific class
+  messageElement.classList.add("message", "bot-message");
+
+  // Text response from chatbot
+  const messageContent = document.createElement("div");
+  messageContent.classList.add("message-content");
+  messageContent.textContent = text;
+  messageElement.appendChild(messageContent);
+
+  // Check if link exists and format accordingly
   if (link) {
-    messageElement.innerHTML = `<div class = "message-content"><a href="${link}" target= "_blank">${text}</a></div>`;
-  } else {
-    messageElement.innerHTML = `<div class="message-content">${message}</div>`;
+    const linkContent = document.createElement("div");
+    linkContent.classList.add("link-content");
+    linkContent.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
+    messageElement.appendChild(linkContent);
   }
 
+  // Append to chat box and scroll
+  chatBox.appendChild(messageElement);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function displayUserMessage(text) {
+  const chatBox = document.getElementById("chatBox");
+  const messageElement = document.createElement("div");
+
+  // Add user-specific class
+  messageElement.classList.add("message", "user-message");
+
+  // Plain text message content
+  messageElement.innerHTML = `<div class="message-content">${text}</div>`;
+
+  // Append to chat box and scroll
   chatBox.appendChild(messageElement);
   chatBox.scrollTop = chatBox.scrollHeight;
 }

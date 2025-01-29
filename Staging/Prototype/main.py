@@ -13,6 +13,7 @@ def chat():
     # request.json
     user_input= request.json.get('message')
     bot_reply = chatbot.chatbot(user_input)
+    bot_reply = ["Click Here", "https://bulletin.vcu.edu/undergraduate/engineering/computer-science/computer-science-bs-concentration-cybersecurity/#degreerequirementstext"]
     return jsonify({'reply': bot_reply})
 
 if __name__ == '__main__':
