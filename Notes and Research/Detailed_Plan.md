@@ -2,13 +2,7 @@
 
 *Below will be the detailed plan for implementation onto the VCU  website.
 
-1) Using SQlite build a database that will hold information regarding courses, computer science organizations, and computer science professors.
-  - See database code here ![](https://github.com/VCU-CS-Capstone/cs-25-314-Chatbot-for-Undergraduate-CS/tree/master/Staging/Kennedy%20Staging)
-  - Estimated Size of Database: < 1MB
-  - Location of Database: Google Cloud storage. Very inexpensive for the storage amount required, ability to grow with the website. This will allow the chatbot to access the database from the website.
-  - Access: Read -- Chatbot , Write -- system admin (verified VCU faculty)
-      - Make the account with google cloud using admin credentials -- only give to those who are meant to have access (see if there is an option to allow other users access - cascading permission -- but they would be owned by an admin so that the permissions could be revoked, changed at any time). 
-  - Maintenence required: Every eight weeks approximately - not normalized so this may be a tedious process
+1) Python program that utilzes Apify for web scraping and RAG techniques for word processing and conversation functionality. 
     
 2) User Interface: Add HTML to the vcu pages that we want the chatbot to appear under
   - Chatbot user interface will be in a container within the HTML page and will send message information entered by the user to the backend which will then query       the database using the chatbot to be implemented.
