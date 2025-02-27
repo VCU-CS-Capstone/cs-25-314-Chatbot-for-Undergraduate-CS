@@ -25,8 +25,6 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Week 12 Status Report |  Meet with webmaster, determine VCU requirements for implementation, finish implementation doc | Presented implementation doc to faculty advisor, Met with webmaster | Update/change implementation document |
 | Week 13 Status Report | Work on poster, work on prototype | Eric and Kennedy worked on poster, Israel and Antony worked on combining code | No issues |
 | Week 14 Status Report | | | No issues |
-| Week 15 Status Report | | | No issues |
-| Week 16 Status Report | | | No issues |
 
 ## Spring Semester
 
