@@ -1,4 +1,4 @@
-# Notes and Research Folder
+# Research & Plans
 
 - This folder contains three files:
 1) Detailed_Plan: This will contain our detailed plan for implementation of a Chatbot on the VCU website
