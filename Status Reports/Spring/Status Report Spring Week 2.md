@@ -11,6 +11,6 @@
 ## 2) Milestones to be completed next week 3
    - Submit Team contract
 
-## 3) Issues, problems or concerns 1
+## 3) Issues, problems or concerns 2
    - No Issued or concerns
    
