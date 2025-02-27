@@ -5,12 +5,12 @@ Implementation Sites:
 * 
 
 Other Sites that _May_ be helpful in implementation:
-* [](https://www.kaggle.com/code/markishere/day-2-document-q-a-with-rag)
-* [](https://llamahub.ai/l/llms/llama-index-llms-anthropic?from=llms)
-* [](https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/)
+* [Kaggle_RAG](https://www.kaggle.com/code/markishere/day-2-document-q-a-with-rag)
+* [Llama_Anthropic](https://llamahub.ai/l/llms/llama-index-llms-anthropic?from=llms)
+* [Llama_Connector](https://docs.llamaindex.ai/en/stable/module_guides/loading/connector/)
 
 
 
 Research Links:
-* [](https://www.justthink.ai/blog/the-evolution-and-history-of-ai-chatbots)
+* [Evolution of AI](https://www.justthink.ai/blog/the-evolution-and-history-of-ai-chatbots)
 * 
