@@ -31,12 +31,12 @@ Status Report Fall Week XX.md is a template for to copy-paste into new Status re
 | Document | Tasks | Accomplishments| Issues |
 |---|---|---|---|
 | Week 1 Status Report | NA | Met with team | NA |
-| Week 2 Status Report | NA | Figured out Faculty meeting times | NA |
-| Week 3 Status Report | Work on team contract, Spring semester Plan | | NA |
-| Week 4 Status Report | | | |
-| Week 5 Status Report | | | |
-| Week 6 Status Report | | | |
-| Week 7 Status Report | | | |
+| Week 2 Status Report | Work on team contract | Figured out Faculty meeting times | NA |
+| Week 3 Status Report | Submit team contract, Spring semester Plan | Implemented RAG, Combined with front end | NA |
+| Week 4 Status Report | Rework design doc, create secret keys for openAI | Created a requirements.txt, worked on secret keys | |
+| Week 5 Status Report | Design doc, Testing| Started testing RAG, Continue reworking design doc | Issues with pushing to Github |
+| Week 6 Status Report | Presentation for IT, design doc | Met with IT for feedback | multiple users |
+| Week 7 Status Report | Meet about next steps | Worked on multiple users, worked on changing models, cleaned up github | NA |
 | Week 8 Status Report | | | |
 | Week 9 Status Report | | | |
 | Week 10 Status Report | | | |
