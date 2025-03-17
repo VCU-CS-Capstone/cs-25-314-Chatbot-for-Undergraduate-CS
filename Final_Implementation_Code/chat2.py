@@ -3,11 +3,12 @@ from llama_index.readers.apify import ApifyActor
 from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
 import os
 import openai
+import json
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from dotenv import load_dotenv
 
 class Chatbot:
-    def __init__(self):
+    def __init__(self, config_file="config.json"):
 
         # load_dotenv()
         # API_KEY =  os.getenv("OPENAI_APIKEY")
@@ -21,14 +22,19 @@ class Chatbot:
 
         PERSIST_DIR = "./storage_index"
 
+        with open(config_file, "r") as f:
+            config = json.load(f)
+            urls = config.get("websites", [])
+
+        if not urls:
+            raise ValueError("No websites found in config file.")
+
         if not os.path.exists(PERSIST_DIR):
             reader = ApifyActor(APIFY)
             documents = reader.load_data(
                 actor_id="apify/website-content-crawler",
                 run_input={
-                    "startUrls": [
-                        {"url": "https://bulletin.vcu.edu/undergraduate/engineering/computer-science/computer-science-bs-concentration-cybersecurity/"}
-                    ]
+                    "startUrls": [{"url": url} for url in urls]
                 },
                 dataset_mapping_function=lambda item: Document(
                     text=item.get("text"),
