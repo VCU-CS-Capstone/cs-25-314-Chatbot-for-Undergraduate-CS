@@ -40,7 +40,7 @@ async def websocket_endpoint(websocket: WebSocket):
             bot_reply = chatbot.ask_response(data)
             await websocket.send_text(bot_reply)
     except WebSocketDisconnect:
-        print(f"Disconnected: {websocket.clinet}")
+        print(f"Disconnected: {websocket.client}")
         active_connection.remove(websocket)
     except Exception as e:
         print(f"Error: {e}")
