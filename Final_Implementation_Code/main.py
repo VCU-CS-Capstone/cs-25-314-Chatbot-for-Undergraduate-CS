@@ -41,7 +41,7 @@ async def websocket_endpoint(websocket: WebSocket):
             await websocket.send_text(bot_reply)
     except WebSocketDisconnect:
         print(f"Disconnected: {websocket.client}")
-        active_connection.remove(websocket)
+        active_connections.remove(websocket)
     except Exception as e:
         print(f"Error: {e}")
         active_connections.remove(websocket)
