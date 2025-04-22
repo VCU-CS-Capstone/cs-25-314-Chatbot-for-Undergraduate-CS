@@ -22,14 +22,22 @@ class Chatbot:
 
         PERSIST_DIR = "./storage_index"
 
+        with open(config_file, "r") as f:
+            config = json.load(f)
+            urls = config.get("websites", [])
+ 
+        if not urls:
+            raise ValueError("No websites found in config file.")
+
         if not os.path.exists(PERSIST_DIR):
             reader = ApifyActor(APIFY)
             documents = reader.load_data(
                 actor_id="apify/website-content-crawler",
                 run_input={
-                    "startUrls": [
-                        {"url": "https://bulletin.vcu.edu/undergraduate/engineering/computer-science/computer-science-bs-concentration-cybersecurity/"}
-                    ]
+                    # "startUrls": [
+                    #     {"url": "https://bulletin.vcu.edu/undergraduate/engineering/computer-science/computer-science-bs-concentration-cybersecurity/"}
+                    # ]
+                    "startUrls": [{"url": url} for url in urls]
                 },
                 dataset_mapping_function=lambda item: Document(
                     text=item.get("text"),
