@@ -70,16 +70,11 @@ class Chatbot:
     #     response = self.query_engine.query(question)
     #     return response.response
 
-    def ask_response(self, query_json):  
-        if query_json.lower() == "exit":
-            return
-        
+    def ask_response(self, question):  
+        if question.lower() == "exit":
+            return "Goodbye!"
+
         try:
-            # Parse the input JSON (query_json is expected to be a string)
-            query_data = json.loads(query_json)
-
-            question = query_data.get("question", "")
-
             # Refined standardized prompt and format
             prompt = ("You are an assistant tasked with answering questions based on the information available. "
                       "Please provide the most accurate and concise answer you can. If the answer cannot be found in the provided data, kindly inform the user that the information is not available. "
@@ -92,6 +87,8 @@ class Chatbot:
 
             # Query the index with the full prompt
             response = self.query_engine.query(full_prompt)
+
             return response.response
+
         except Exception as e:
             return f"Error parsing query: {e}"
