@@ -3,7 +3,7 @@ from llama_index.readers.apify import ApifyActor
 from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
 import os
 import openai
-
+import json
 from llama_index.embeddings.openai import OpenAIEmbedding
 from dotenv import load_dotenv
 
@@ -53,10 +53,37 @@ class Chatbot:
         self.query_engine = index.as_query_engine()
 
 
-    def ask_response(self, question):  
-        if question.lower() == "exit":
+
+    # def ask_response(self, question):  
+    #     if question.lower() == "exit":
+    #         return
+        
+    #     # Query the index
+    #     response = self.query_engine.query(question)
+    #     return response.response
+
+    def ask_response(self, query_json):  
+        if query_json.lower() == "exit":
             return
         
-        # Query the index
-        response = self.query_engine.query(question)
-        return response.response
+        try:
+            # Parse the input JSON (query_json is expected to be a string)
+            query_data = json.loads(query_json)
+
+            question = query_data.get("question", "")
+
+            # Refined standardized prompt and format
+            prompt = ("You are an assistant tasked with answering questions based on the information available. "
+                      "Please provide the most accurate and concise answer you can. If the answer cannot be found in the provided data, kindly inform the user that the information is not available. "
+                      "Always ensure your response is clear and easy to understand.")
+            
+            format_style = "Please answer in a short, conversational tone. Your response should be clear, direct, and concise, as if you're explaining it to a friend. Avoid excessive jargon, and if the information is not available, politely inform the user of the limitations."
+
+            # Construct the full prompt for the model
+            full_prompt = f"{prompt}\n\nQuestion: {question}\n\nFormat: {format_style}"
+
+            # Query the index with the full prompt
+            response = self.query_engine.query(full_prompt)
+            return response.response
+        except Exception as e:
+            return f"Error parsing query: {e}"
