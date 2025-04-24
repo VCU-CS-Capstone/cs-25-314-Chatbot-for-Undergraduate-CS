@@ -14,12 +14,7 @@
   - Uses .js for fetching the text from the user-input and populates the return of the python program in the backend to jsonify the chatbot's response and repopulate it in the chatbot container
   - Uses .css for the design of the visual and user experience portion on the website.
     
-3) Backend:
-- See python code here <>
-- Build python program that will be responsible for sending user question to NLP for processing and return of key words
-- Use key words to query a database to find all relevant information (this can be improved with word embedding if we have time)
-- Take the information that was returned from the database and format it into a conversational response, send to chatbot (user)
-    - We can either use the NLP to format a friendly response or we can have templates and fill them in with the information because the NLP will end up costing money.
+**All code for this project is in the Final_Implementation_Code folder**
 
 
 
