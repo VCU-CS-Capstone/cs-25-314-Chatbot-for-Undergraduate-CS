@@ -4,7 +4,7 @@
 
 1) Python program that utilzes Apify for web scraping and RAG techniques for word processing and conversation functionality. 
     
-2) User Interface: Add HTML to the vcu pages that we want the chatbot to appear under
+2) User Interface: Add HTML to the VCU pages that we want the chatbot to appear under
   - Chatbot user interface will be in a container within the HTML page and will send message information entered by the user to the backend which will then query       the database using the chatbot to be implemented.
   - Also will populate the chatbot's responses to the user in the container
   - HTML code for the div:
